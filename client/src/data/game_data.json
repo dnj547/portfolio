@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "name": "Level 1 - Grow up!",
+    "cards": [
+      {
+        "id": 1,
+        "text": "You were just born!",
+        "responses": [
+          {
+            "id": 1,
+            "text": "Cool"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "text": "You moved to Texas!",
+        "responses": [
+          {
+            "id": 1,
+            "text": "Awesome"
+          },
+          {
+            "id": 2,
+            "text": "Not cool"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Level 2 - Get an education!"
+  },
+  {
+    "id": 3,
+    "name": "Level 3 - Get a job!"
+  },
+  {
+    "id": 4,
+    "name": "Level 4 - Get a life!"
+  }
+]

@@ -1,0 +1,7 @@
+c1 = Card.find_or_create_by(card_text: "You moved to Texas!")
+r1 = Response.find_or_create_by(response_text: "Awesome", card: c1)
+r2 = Response.find_or_create_by(response_text: "Not cool", card: c1)
+v1 = Vote.create(response: r1, card: c1)
+v2 = Vote.create(response: r2, card: c1)
+v3 = Vote.create(response: r2, card: c1)
+v4 = Vote.create(response: r2, card: c1)
