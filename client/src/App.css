@@ -32,12 +32,19 @@
   }
 }
 
-.main-container {
-  background-color: lightgreen;
+body {
+  background-color: #F6FFFA;
+}
+
+.my-name {
+  color: #FF738E;
 }
 
 .nav-bar {
   background-color: pink;
+  width: 90%;
+  height: auto;
+  margin: auto;
 }
 
 .about-container {
@@ -46,12 +53,66 @@
 
 .projects-container {
   background-color: lightblue;
+  width: 90%;
+  padding-bottom: 50%;
+  height: 0;
+  margin: auto;
 }
 
 .life-container {
   background-color: lightgreen;
+  width: 90%;
+  padding-bottom: 50%;
+  height: 0;
+  margin: auto;
+  display: flex;
 }
 
 .contact-container {
   background-color: purple;
+}
+
+.level {
+  width: 300px;
+  margin: auto;
+  flex: 1;
+}
+
+.project {
+  background-color: white;
+  width: 90%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.img-container {
+  max-height: 300px;
+  overflow: hidden;
+  margin: auto;
+}
+
+img {
+  width: 90%;
+  height: auto;
+}
+
+.card {
+  background-color: green;
+  width: 300px;
+  height: 350px;
+  padding-top: 1%;
+  padding-bottom: 3%;
+  margin: auto;
+}
+
+.level-text {
+  background-color: white;
+  width: 90%;
+  padding-top: 50%;
+  padding-bottom: 50%;
+  margin: auto;
 }
