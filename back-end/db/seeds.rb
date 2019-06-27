@@ -1,7 +1,45 @@
-c1 = Card.find_or_create_by(card_text: "You moved to Texas!")
-r1 = Response.find_or_create_by(response_text: "Awesome", card: c1)
-r2 = Response.find_or_create_by(response_text: "Not cool", card: c1)
-v1 = Vote.create(response: r1, card: c1)
-v2 = Vote.create(response: r2, card: c1)
-v3 = Vote.create(response: r2, card: c1)
-v4 = Vote.create(response: r2, card: c1)
+cards = [
+  "You were just born in Tampa, FL!",
+  "image",
+  "You moved to Texas!",
+  "image",
+  "You moved to Louisiana!",
+  "image",
+  "You graduated from Bossier City High School as valedictorian!",
+  "image",
+  "You just started college at LSU!",
+  "You're majoring in graphic design. But why? You miss math.",
+  "You changed your major to Accounting! How fun! What an exciting subject!",
+  "image",
+  "You just got an internship at an PwC (a fantastic accounting firm) in New York City!",
+  "image",
+  "You finished the internship and graduated from college! Go you!"
+]
+responses = [
+  ["Cool","Wow, what a nightmare"],
+  ["Move to Texas"],
+  ["Awesome","Not cool, man"],
+  ["Move to Louisiana"],
+  ["The food is good there","Mardi Gras!","Eww... swamps..."],
+  ["Grow up already!"],
+  ["Show off...","Wow!"],
+  ["Again!"],
+  ["Cool!","Geaux Tigers!","LSU Sux"],
+  ["Change Major"],
+  ["Yeah!","Bro...","Accounting, really?"],
+  ["Hahaha","Come on, it can't be that bad"],
+  ["Yasssssss!","Sounds awful!"],
+  ["PwC!","Oh right they messed up the Oscars"],
+  ["Again!"]
+]
+
+cards.each do |card|
+  Card.create(card_text: card)
+end
+
+responses.each_with_index do |responses, index|
+  card = index+1
+  responses.each do |response|
+    Response.create(response_text: response, card_id: card)
+  end
+end

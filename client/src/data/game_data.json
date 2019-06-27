@@ -5,25 +5,101 @@
     "cards": [
       {
         "id": 1,
-        "text": "You were just born!",
+        "text": "You were just born in Tampa, FL!",
         "responses": [
           {
             "id": 1,
             "text": "Cool"
+          },
+          {
+            "id": 2,
+            "text": "Wow, what a nightmare"
           }
         ]
       },
       {
         "id": 2,
+        "image": "https://i.pinimg.com/originals/a2/89/ff/a289ffdd076417305bb2fce71b93570f.png",
+        "responses": [
+          {
+            "id": 3,
+            "text": "Move to Texas"
+          }
+        ]
+      },
+      {
+        "id": 3,
         "text": "You moved to Texas!",
         "responses": [
           {
-            "id": 1,
+            "id": 4,
             "text": "Awesome"
           },
           {
-            "id": 2,
-            "text": "Not cool"
+            "id": 5,
+            "text": "Not cool, man"
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "image": "https://c.tadst.com/gfx/750w/texas-independence.jpg",
+        "responses": [
+          {
+            "id": 6,
+            "text": "Move to Louisiana"
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "text": "You moved to Louisiana!",
+        "responses": [
+          {
+            "id": 7,
+            "text": "The food is good there"
+          },
+          {
+            "id": 8,
+            "text": "Mardi Gras!"
+          },
+          {
+            "id": 9,
+            "text": "Eww... swamps..."
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "image": "https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/louisiana-fun-map-kevin-middleton.jpg",
+        "responses": [
+          {
+            "id": 10,
+            "text": "Grow up already!"
+          }
+        ]
+      },
+      {
+        "id": 7,
+        "text": "You graduated from Bossier City High School as valedictorian!",
+        "responses": [
+          {
+            "id": 11,
+            "text": "Show off..."
+          },
+          {
+            "id": 12,
+            "text": "Wow!"
+          }
+        ]
+      },
+      {
+        "id": 8,
+        "image": "https://ch3301files.storage.live.com/y4pOvmeLhM3TwvsS9L9TS-AygvrKxWOpEI6_WYZ8Dlvgk-r2-RHxRWJAjI1ic_UAymrUfX1M8CJtNVVxmp9Xi15pn07V_LN3fpPVBoKOWW6tzvgtIdKElVEmJ46SPfJTP8CbzLOsgdG9zyFxhJx6O9s3v7JqU5DrJ918Wce03_dUNwdynVEPJckLng7qxmMuF3p/0114%20Jasper%2C%20DanielleB.jpg?psid=1&width=751&height=938",
+        "responses": [
+          {
+            "id": 13,
+            "text": "Again!"
           }
         ]
       }
@@ -31,7 +107,107 @@
   },
   {
     "id": 2,
-    "name": "Level 2 - Get an education!"
+    "name": "Level 2 - Get an education!",
+    "cards": [
+      {
+        "id": 9,
+        "text": "You just started college at LSU!",
+        "responses": [
+          {
+            "id": 14,
+            "text": "Cool!"
+          },
+          {
+            "id": 15,
+            "text": "Geaux Tigers!"
+          },
+          {
+            "id": 16,
+            "text": "LSU Sux"
+          }
+        ]
+      },
+      {
+        "id": 10,
+        "text": "You're majoring in graphic design. But why? You miss math.",
+        "responses": [
+          {
+            "id": 17,
+            "text": "Change Major"
+          }
+        ]
+      },
+      {
+        "id": 11,
+        "text": "You changed your major to Accounting! How fun! What an exciting subject!",
+        "responses": [
+          {
+            "id": 18,
+            "text": "Yeah!"
+          },
+          {
+            "id": 19,
+            "text": "Bro..."
+          },
+          {
+            "id": 20,
+            "text": "Accounting, really?"
+          }
+        ]
+      },
+      {
+        "id": 12,
+        "image": "https://preview.redd.it/ky3ugeivkd821.jpg?width=960&crop=smart&auto=webp&s=81d3b09c6f429b01a4602f483d34f06a077ad7c8",
+        "responses": [
+          {
+            "id": 21,
+            "text": "Hahaha"
+          },
+          {
+            "id": 22,
+            "text": "Come on, it can't be that bad"
+          }
+        ]
+      },
+      {
+        "id": 13,
+        "text": "You just got an internship at an PwC (a fantastic accounting firm) in New York City!",
+        "responses": [
+          {
+            "id": 23,
+            "text": "Yasssssss!"
+          },
+          {
+            "id": 24,
+            "text": "Sounds awful!"
+          }
+        ]
+      },
+      {
+        "id": 14,
+        "image": "https://pics.me.me/who-would-win-an-entire-accounting-firm-a-confused-old-17422631.png",
+        "responses": [
+          {
+            "id": 25,
+            "text": "PwC!"
+          },
+          {
+            "id": 26,
+            "text": "Oh right they messed up the Oscars"
+          }
+        ]
+      },
+      {
+        "id": 15,
+        "text": "You finished the internship and graduated from college! Go you!",
+        "responses": [
+          {
+            "id": 27,
+            "text": "Again!"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": 3,

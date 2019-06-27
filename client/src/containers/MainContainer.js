@@ -9,9 +9,9 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 class MainContainer extends Component {
   render() {
     return (
-      <div className="main-container ui container">
+      <div className="main-container">
         Main Container
-        <h1 className="ui header">Danielle Jasper</h1>
+        <h1 className="my-name">Danielle Jasper</h1>
 
           <Router>
             <div className="nav-bar ui container">
