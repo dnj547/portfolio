@@ -1,15 +1,19 @@
 [
   {
     "id": 1,
-    "name": "project1",
-    "video": "project1video",
-    "description": "project1description"
+    "name": "City Guru",
+    "video": "GiNgjgOKwW4",
+    "date-created": "April 2019 - Mod 1 at Flatiron School",
+    "tech-used": "Ruby, Teleport API",
+    "description": "Command Line Interface application that uses the Teleport API to obtain salary data and quality of life data about any major city in the world"
   },
   {
     "id": 2,
-    "name": "project2",
-    "video": "project2video",
-    "description": "project2description"
+    "name": "Afterthoughts",
+    "video": "U1DtNW9JN8o",
+    "date-created": "May 2019 - Mod 2 at Flatiron School",
+    "tech-used": "Ruby on Rails",
+    "description": "Calendar app that allows you to add afterthoughts to events you have created"
   },
   {
     "id": 3,
