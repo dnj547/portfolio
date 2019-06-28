@@ -6,7 +6,7 @@ class ContactContainer extends Component {
       <div className="contact-container">
         <div className="contact-form">
           <h1>Contact Me</h1>
-          <form>
+            <form action="https://formspree.io/daniellejasper0@gmail.com" method="POST" >
               <input
                 type="text"
                 name="name"
@@ -14,8 +14,8 @@ class ContactContainer extends Component {
                 size="50"/>
               <br/>
               <input
-                type="text"
-                name="email"
+                type="email"
+                name="_replyto"
                 placeholder="realbillgates@microsoft.com"
                 size="50"/>
               <br/>
@@ -26,7 +26,7 @@ class ContactContainer extends Component {
                 cols="48"
                 wrap="soft"/>
               <br/>
-            <input type="submit" value="Submit" />
+            <input type="submit" value="Send" />
           </form>
         </div>
       </div>
