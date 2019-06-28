@@ -5,13 +5,15 @@ import data from '../data/game_data.json';
 class LifeContainer extends Component {
 
   state = {
-    level: 1
+    level: 0
   }
 
   levelComponents = () => {
-    return data.map(level=>{
-      return <Level key={level.id} level={level} nextLevel={this.nextLevel} currentLevel={this.state.level}/>
-    })
+    if (this.state.level > 0) {
+      return data.map(level=>{
+        return <Level key={level.id} level={level} nextLevel={this.nextLevel} currentLevel={this.state.level}/>
+      })
+    }
   }
 
   nextLevel = () => {
@@ -24,10 +26,22 @@ class LifeContainer extends Component {
     }
   }
 
+  showInitialPage = () => {
+    if (this.state.level === 0) {
+      return (
+        <div>
+          <h1>Play the game of my life!</h1>
+          <button onClick={this.nextLevel}>Play</button>
+        </div>
+      )
+    }
+  }
+
   render() {
     console.log('Life Container state', this.state);
     return (
       <div className="life-container">
+        {this.showInitialPage()}
         {this.levelComponents()}
       </div>
     );
