@@ -38,6 +38,9 @@ body {
 
 .my-name {
   color: #FF738E;
+  flex-grow: 7;
+  text-align: right;
+  padding-right: 20px;
 }
 
 .nav-bar {
@@ -45,21 +48,18 @@ body {
   width: 90%;
   height: auto;
   margin: auto;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
-.about-container {
-  background-color: red;
+.nav-links {
+  flex-grow: 1;
+  display: flex;
+  justify-content: space-evenly;
 }
 
-.projects-container {
-  background-color: lightblue;
-  width: 90%;
-  padding-bottom: 50%;
-  height: 0;
-  margin: auto;
-}
-
-.life-container {
+.about-container, .projects-container, .life-container, .contact-container {
   background-color: lightgreen;
   width: 90%;
   padding-bottom: 50%;
@@ -68,13 +68,24 @@ body {
   display: flex;
 }
 
-.contact-container {
-  background-color: purple;
-  width: 90%;
-  padding-bottom: 50%;
-  height: 0;
-  margin: auto;
-  display: flex;
+.about-me-pic {
+  flex: 1;
+  margin-top: 30px;
+}
+
+.about-me-pic img {
+  width: 60%;
+}
+
+.about-me {
+  flex: 1;
+  width: 60%;
+  margin-top: 30px;
+  background-color: lightblue;
+}
+
+.initial-life-page {
+  flex: 1;
 }
 
 .level {
@@ -84,7 +95,7 @@ body {
 }
 
 .project {
-  background-color: blue;
+  background-color: lightblue;
   width: 90%;
   padding-top: 1%;
   padding-bottom: 1%;
@@ -109,6 +120,7 @@ body {
   max-height: 300px;
   overflow: hidden;
   margin: auto;
+  flex: 1;
 }
 
 img {
@@ -123,14 +135,19 @@ img {
   padding-top: 1%;
   padding-bottom: 3%;
   margin: auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .level-text {
   background-color: white;
   width: 90%;
-  padding-top: 50%;
-  padding-bottom: 50%;
-  margin: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  flex-basis: 300px;
+  vertical-align: middle;
 }
 
 .contact-form {
@@ -139,4 +156,12 @@ img {
   height: 500px;
   padding-top: 3%;
   margin: auto;
+}
+
+.response-button {
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 3px;
+  flex-basis: 10px;
 }

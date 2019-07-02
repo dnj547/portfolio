@@ -17,8 +17,18 @@
   },
   {
     "id": 3,
-    "name": "project3",
-    "video": "project3video",
-    "description": "project3description"
+    "name": "Ott Libs",
+    "video": "N-So1yd09Ws",
+    "date-created": "May 2019 - Mod 3 at Flatiron School",
+    "tech-used": "Ruby on Rails & JavaScript",
+    "description": "Mad Libs game about otters escaping from the zoo to live at Flatiron School"
+  },
+  {
+    "id": 4,
+    "name": "Triviaddiction",
+    "video": "TdHgoXsv6UA",
+    "date-created": "June 2019 - Mod 4 at Flatiron School",
+    "tech-used": "Ruby on Rails & React",
+    "description": "Trivia game where you can choose a category and time limit and see high scores of all users"
   }
 ]

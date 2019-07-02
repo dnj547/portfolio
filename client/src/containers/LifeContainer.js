@@ -29,7 +29,7 @@ class LifeContainer extends Component {
   showInitialPage = () => {
     if (this.state.level === 0) {
       return (
-        <div>
+        <div className="initial-life-page">
           <h1>Play the game of my life!</h1>
           <button onClick={this.nextLevel}>Play</button>
         </div>
