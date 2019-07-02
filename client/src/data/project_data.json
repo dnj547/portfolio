@@ -2,7 +2,7 @@
   {
     "id": 1,
     "name": "City Guru",
-    "video": "GiNgjgOKwW4",
+    "video": "https://s3.us-east-2.amazonaws.com/video.9/City_Guru.mp4",
     "date-created": "April 2019 - Mod 1 at Flatiron School",
     "tech-used": "Ruby, Teleport API",
     "description": "Command Line Interface application that uses the Teleport API to obtain salary data and quality of life data about any major city in the world"
@@ -10,7 +10,7 @@
   {
     "id": 2,
     "name": "Afterthoughts",
-    "video": "U1DtNW9JN8o",
+    "video": "https://s3.us-east-2.amazonaws.com/video.9/Afterthoughts.mp4",
     "date-created": "May 2019 - Mod 2 at Flatiron School",
     "tech-used": "Ruby on Rails",
     "description": "Calendar app that allows you to add afterthoughts to events you have created"
@@ -18,7 +18,7 @@
   {
     "id": 3,
     "name": "Ott Libs",
-    "video": "N-So1yd09Ws",
+    "video": "https://s3.us-east-2.amazonaws.com/video.9/Ott+Libs.mp4",
     "date-created": "May 2019 - Mod 3 at Flatiron School",
     "tech-used": "Ruby on Rails & JavaScript",
     "description": "Mad Libs game about otters escaping from the zoo to live at Flatiron School"
@@ -26,7 +26,7 @@
   {
     "id": 4,
     "name": "Triviaddiction",
-    "video": "TdHgoXsv6UA",
+    "video": "https://s3.us-east-2.amazonaws.com/video.9/Triviaddiction.mp4",
     "date-created": "June 2019 - Mod 4 at Flatiron School",
     "tech-used": "Ruby on Rails & React",
     "description": "Trivia game where you can choose a category and time limit and see high scores of all users"

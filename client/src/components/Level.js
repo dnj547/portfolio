@@ -13,7 +13,7 @@ class Level extends Component {
   showACardComponent = () => {
     if (this.props.level.cards) {
       let currentCard = this.props.level.cards[this.state.progress]
-        return <Card card={currentCard} nextCardOrRestart={this.nextCardOrRestart} level={this.props.level.id}/>
+      return <Card card={currentCard} nextCardOrRestart={this.nextCardOrRestart} level={this.props.level.id}/>
     }
   }
 
@@ -23,7 +23,7 @@ class Level extends Component {
     if (this.state.progress < this.props.level.cards.length-2) {
       this.setState({
         progress: this.state.progress + 1
-      }, this.postToVotes(e), this.fetchVotes())
+      })
     } else if (this.state.progress < this.props.level.cards.length-1){
       this.setState({
         progress: this.state.progress + 1

@@ -15,7 +15,8 @@ class AboutContainer extends Component {
           <h1>About Me</h1>
           <h2>Hi, I'm Danielle.</h2>
           <p>I'm a full-stack software developer who just graduated from Flatiron School! (July 2019)</p>
-
+          <h3>Links:</h3>
+          <a href="https://github.com/dnj547">GitHub</a>
         </div>
       </div>
     );

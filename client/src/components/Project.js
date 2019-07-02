@@ -6,8 +6,9 @@ class Project extends Component {
     if (this.props.project.id === this.props.currentProject) {
       return (
         <div className="project">
-          <iframe className="project-video" title={this.props.project.name} width="1120" height="630" src={`https://www.youtube.com/embed/${this.props.project.video}`} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen>
-          </iframe>
+          <div className="video-container">
+            <iframe title={this.props.project.id} width="840" height="472.50" src={this.props.project.video} frameBorder="0" allowFullScreen></iframe>
+          </div>
           <div className="project-info">
             <h1>{this.props.project.name}</h1>
             <p>
