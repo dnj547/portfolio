@@ -165,3 +165,9 @@ img {
   margin-bottom: 3px;
   flex-basis: 10px;
 }
+
+.analytics {
+  background-color: pink;
+  width: 90%;
+  margin: auto;
+}

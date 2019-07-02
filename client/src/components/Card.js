@@ -1,12 +1,49 @@
 import React, { Component } from 'react';
 
-const API_CARDS = 'http://localhost:3000/api/v1/cards';
+// const API_CARDS = 'http://localhost:3000/api/v1/cards';
 const API_VOTES = 'http://localhost:3000/api/v1/votes';
+const API_RESPONSES = 'http://localhost:3000/api/v1/responses';
 
 class Card extends Component {
 
-  showTextOrImage = () => {
-    if (this.props.card.text) {
+  state = {
+    clicked: [],
+    responsesAndVotePercentages: []
+  }
+
+  showResponsesAndVotePercentages = () => {
+    return this.state.responsesAndVotePercentages.map(rv=>{
+      if (rv[0] === this.state.clicked) {
+        return <p key={rv[0]}><strong>{rv[0]}: {rv[1]}</strong></p>
+      } else {
+        return <p key={rv[0]}>{rv[0]}: {rv[1]}</p>
+      }
+    })
+  }
+
+  resetState = () => {
+    this.setState({
+      clicked: [],
+      responsesAndVotePercentages: []
+    }, this.props.nextCardOrRestart())
+  }
+
+  showTextOrImageOrAnalytics = () => {
+    if (this.state.clicked.length>0) {
+      return (
+        <div className="card">
+          <div className="level-text">
+            <p><strong>You said: {this.state.clicked}</strong></p>
+            <p>Other people said: </p>
+            <div className="analytics">
+              {this.showResponsesAndVotePercentages()}
+            </div>
+          </div>
+          <br/>
+          <button onClick={this.resetState} className="response-button">Cool</button>
+        </div>
+      )
+    } else if (this.props.card.text) {
       return (
         <div className="card">
           <div className="level-text">
@@ -39,71 +76,80 @@ class Card extends Component {
     })
   }
 
-  fetchVotes = () => {
-    // debugger
-    let cardClickedId = this.props.card.id
-    console.log('fetching votes for card ID', cardClickedId);
-    fetch(API_CARDS + '/' + cardClickedId)
+  fetchVotes = (responseClicked, cardClickedId) => {
+    fetch(API_RESPONSES)
     .then(r=>r.json())
-    .then(cardClicked=>{
-      console.log('card Clicked', cardClicked);
-      // find votes where card id is within the card IDs of this level
-      // let thisLevelCardIds = this.props.level.cards.map(card=>{
-      //   return card.id
-      // })
-      // console.log('');
-      // console.log('this level card IDs', thisLevelCardIds);
-      // let votesForThisLevel = votes.filter(vote=>{
-      //   return thisLevelCardIds.includes(vote.card.id)
-      // })
-      // console.log('votes for this level', votesForThisLevel);
-      // this.setState({
-      //   votes: votesForThisLevel
-      // }, this.analytics(votesForThisLevel))
+    .then(responses=>{
+      let responsesForThisCard = responses.filter(response=>{
+        return response.card_id === cardClickedId
+      })
+      let totalVotes = responsesForThisCard.map(response=>{
+        return response.votes.length
+      }).reduce((a,b) => a + b, 0)
+      let responsesAndVotePercentages = []
+      responsesForThisCard.map(response=>{
+        return responsesAndVotePercentages.push([response.response_text, ((response.votes.length/totalVotes)*100).toFixed(0)+'%'])
+      })
+      let clicked = responseClicked.text
+      this.setState({
+        clicked: clicked,
+        responsesAndVotePercentages: responsesAndVotePercentages
+      })
     })
     .catch(()=>console.log("Error fetching votes"))
   }
 
   postToVotes = (e) => {
-    // I need game_data card ids and response ids to match api card ids and response ids
-      console.log('');
-      console.log('posting to votes');
-      let cardClickedId = this.props.card.id
-      console.log('cardClickedId', cardClickedId);
-      let responseClickedId = this.props.card.responses.find(response=>{
-        return response.id === parseInt(e.currentTarget.id, 10)
-      }).id
-      fetch(API_VOTES, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-          'Access-Control-Allow-Origin': 'http://localhost:3001'
-        },
-        body: JSON.stringify({
-          "response_id": responseClickedId,
-          "card_id": cardClickedId
-        })
+    console.log('');
+    console.log('posting to votes');
+    let cardClickedId = this.props.card.id
+    let responseClicked = this.props.card.responses.find(response=>{
+      return response.id === parseInt(e.currentTarget.id, 10)
+    })
+    let responseClickedId = responseClicked.id
+    fetch(API_VOTES, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        "response_id": responseClickedId,
+        "card_id": cardClickedId
       })
-      .then(r=>r.json())
-      .then(data=>this.setState({
-        progress: this.state.progress
-      }, this.fetchVotes()))
-      .catch(()=>console.log("Error posting to votes"))
+    })
+    .then(r=>r.json())
+    .then(vote=>{
+      console.log('vote posted', vote);
+      this.fetchVotes(responseClicked, cardClickedId)
+    })
   }
 
-  analytics = () => {
-    console.log('analytics');
-    let responses = this.props.card.responses
-    console.log('responses', responses);
-  }
+  // showPTagsForEachResponse = (responsesAndVotePercentages) => {
+  //   return responsesAndVotePercentages.map(rv=>{
+  //     return <p>{rv[0]}: {rv[1]}</p>
+  //   })
+  // }
+  //
+  // showAnalyticsCard = (responseText, responsesAndVotePercentages) => {
+  //   return (
+  //     <div className="card">
+  //       <div className="analytics-text">
+  //         <p>You clicked {responseText}!</p>
+  //         {this.showPTagsForEachResponse(responsesAndVotePercentages)}
+  //       </div>
+  //       <br/>
+  //       <button className="analytics-button" id={responseText} key={responseText} onClick={this.props.nextCardOrRestart}>Cool</button>
+  //     </div>
+  //   )
+  // }
 
   render() {
     console.log('Card props', this.props);
     return (
       <div className="level">
         <h2>{this.props.level}</h2>
-        {this.showTextOrImage()}
+        {this.showTextOrImageOrAnalytics()}
       </div>
     )
   }
