@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import ReactPlayer from 'react-player'
 
 class Project extends Component {
 
@@ -42,5 +41,3 @@ class Project extends Component {
 }
 
 export default Project;
-
-// <ReactPlayer className="project-video" url={this.props.project.video} width="900px" height="506.25px"/>
