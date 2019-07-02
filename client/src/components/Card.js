@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 const API_CARDS = 'http://localhost:3000/api/v1/cards';
-const API_VOTES = 'http://localhost:3000/api/v1/votes'
+const API_VOTES = 'http://localhost:3000/api/v1/votes';
 
 class Card extends Component {
 
@@ -66,11 +66,6 @@ class Card extends Component {
 
   postToVotes = (e) => {
     // I need game_data card ids and response ids to match api card ids and response ids
-    if (this.props.card.responses.length > 1) {
-      console.log('');
-      console.log('');
-      console.log('');
-      console.log('');
       console.log('');
       console.log('posting to votes');
       let cardClickedId = this.props.card.id
@@ -82,7 +77,8 @@ class Card extends Component {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Accept': 'application/json'
+          'Accept': 'application/json',
+          'Access-Control-Allow-Origin': 'http://localhost:3001'
         },
         body: JSON.stringify({
           "response_id": responseClickedId,
@@ -92,13 +88,8 @@ class Card extends Component {
       .then(r=>r.json())
       .then(data=>this.setState({
         progress: this.state.progress
-      }))
-      .then(nada=>{
-        this.fetchVotes()
-      })
-    } else {
-      console.log('nothing to post');
-    }
+      }, this.fetchVotes()))
+      .catch(()=>console.log("Error posting to votes"))
   }
 
   analytics = () => {

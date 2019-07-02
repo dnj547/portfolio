@@ -35,7 +35,6 @@ class Level extends Component {
     }
   }
 
-
   render() {
     console.log('');
     console.log(this.props.level.name, this.state, 'props', this.props);
