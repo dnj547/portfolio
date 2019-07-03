@@ -2,6 +2,7 @@
   {
     "id": 1,
     "name": "City Guru",
+    "github": "https://github.com/dnj547/city-guru-project",
     "video": "https://s3.us-east-2.amazonaws.com/video.9/City_Guru.mp4",
     "date-created": "April 2019 - Mod 1 at Flatiron School",
     "tech-used": "Ruby, Teleport API",
@@ -10,6 +11,7 @@
   {
     "id": 2,
     "name": "Afterthoughts",
+    "github": "https://github.com/dnj547/afterthoughts",
     "video": "https://s3.us-east-2.amazonaws.com/video.9/Afterthoughts.mp4",
     "date-created": "May 2019 - Mod 2 at Flatiron School",
     "tech-used": "Ruby on Rails",
@@ -18,6 +20,7 @@
   {
     "id": 3,
     "name": "Ott Libs",
+    "github": "https://github.com/dnj547/ott-libs",
     "video": "https://s3.us-east-2.amazonaws.com/video.9/Ott+Libs.mp4",
     "date-created": "May 2019 - Mod 3 at Flatiron School",
     "tech-used": "Ruby on Rails & JavaScript",
@@ -26,6 +29,7 @@
   {
     "id": 4,
     "name": "Triviaddiction",
+    "github": "https://github.com/dnj547/triviaddiction",
     "video": "https://s3.us-east-2.amazonaws.com/video.9/Triviaddiction.mp4",
     "date-created": "June 2019 - Mod 4 at Flatiron School",
     "tech-used": "Ruby on Rails & React",

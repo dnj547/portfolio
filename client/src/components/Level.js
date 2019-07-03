@@ -11,7 +11,7 @@ class Level extends Component {
   }
 
   showACardComponent = () => {
-    if (this.props.level.cards) {
+    if (this.props.level.cards && this.props.currentLevel >= this.props.level.id) {
       let currentCard = this.props.level.cards[this.state.progress]
       return <Card card={currentCard} nextCardOrRestart={this.nextCardOrRestart} level={this.props.level.id}/>
     }

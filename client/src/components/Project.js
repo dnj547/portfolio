@@ -11,6 +11,7 @@ class Project extends Component {
           </div>
           <div className="project-info">
             <h1>{this.props.project.name}</h1>
+            <a href={this.props.project.github}>GitHub</a>
             <p>
               <strong>Created: </strong>
               {this.props.project['date-created']}
