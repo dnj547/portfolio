@@ -32,6 +32,7 @@ class ProjectsContainer extends Component {
   render() {
     return (
       <div className="projects-container ui container">
+        <h1>Projects</h1>
         {this.projectComponents()}
       </div>
     );

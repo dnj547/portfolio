@@ -68,6 +68,10 @@ body {
   display: flex;
 }
 
+.projects-container {
+  flex-direction: column;
+}
+
 .about-me-pic {
   flex: 1;
   margin-top: 30px;
