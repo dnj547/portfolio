@@ -150,7 +150,7 @@
           ]
         },
       { "id": 19,
-        "image": "image",
+        "image": "images/pwc.jpg",
         "responses": [
           { "id": 34, "text": "Play again" }
           ]
@@ -212,7 +212,7 @@
           ]
         },
       { "id": 26,
-        "image": "image",
+        "image": "images/juggler.jpg",
         "responses": [
           { "id": 47, "text": "Play again" },
           { "id": 48, "text": "I've got a job for you!" }

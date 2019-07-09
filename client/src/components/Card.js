@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PieChartWithCustomization from './Chart';
 
 // const API_CARDS = 'http://localhost:3000/api/v1/cards';
 const API_VOTES = 'http://localhost:3000/api/v1/votes';
@@ -36,7 +37,7 @@ class Card extends Component {
             <p><strong>You said: {this.state.clicked}</strong></p>
             <p>Other people said: </p>
             <div className="analytics">
-              {this.showResponsesAndVotePercentages()}
+              {this.state.clicked.length > 0 ?  <PieChartWithCustomization pieState={this.state}/> : null}
             </div>
           </div>
           <br/>
@@ -124,25 +125,6 @@ class Card extends Component {
       this.fetchVotes(responseClicked, cardClickedId)
     })
   }
-
-  // showPTagsForEachResponse = (responsesAndVotePercentages) => {
-  //   return responsesAndVotePercentages.map(rv=>{
-  //     return <p>{rv[0]}: {rv[1]}</p>
-  //   })
-  // }
-  //
-  // showAnalyticsCard = (responseText, responsesAndVotePercentages) => {
-  //   return (
-  //     <div className="card">
-  //       <div className="analytics-text">
-  //         <p>You clicked {responseText}!</p>
-  //         {this.showPTagsForEachResponse(responsesAndVotePercentages)}
-  //       </div>
-  //       <br/>
-  //       <button className="analytics-button" id={responseText} key={responseText} onClick={this.props.nextCardOrRestart}>Cool</button>
-  //     </div>
-  //   )
-  // }
 
   render() {
     console.log('Card props', this.props);
