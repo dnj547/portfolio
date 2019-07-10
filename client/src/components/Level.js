@@ -35,12 +35,19 @@ class Level extends Component {
     }
   }
 
+  finishIt = () => {
+    this.setState({
+      progress: this.props.level.cards.length-1
+    })
+  }
+
   render() {
     console.log('');
     console.log(this.props.level.name, this.state, 'props', this.props);
     return (
       <div className="level">
         {this.showACardComponent()}
+        <button onClick={this.finishIt}>finish it</button>
       </div>
     );
   }

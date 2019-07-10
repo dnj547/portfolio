@@ -37,10 +37,17 @@ class LifeContainer extends Component {
     }
   }
 
+  finishIt = () => {
+    this.setState({
+      level: 4
+    })
+  }
+
   render() {
     console.log('Life Container state', this.state);
     return (
       <div className="life-container">
+        <button onClick={this.finishIt}>finish it</button>
         {this.showInitialPage()}
         {this.levelComponents()}
       </div>

@@ -1,220 +1,223 @@
 [
   {
     "id": 1,
-    "name": "Level 1 - Grow up!",
+    "name": "Level 1 - Grow Up!",
     "cards": [
-      {
-        "id": 1,
+      {"id": 1,
         "text": "You were just born in Tampa, FL!",
         "responses": [
-          {
-            "id": 1,
-            "text": "Cool"
-          },
-          {
-            "id": 2,
-            "text": "Wow, what a nightmare"
-          }
+          { "id": 1, "text": ":)" },
+          { "id": 2, "text": ":(" }
         ]
       },
-      {
-        "id": 2,
-        "image": "https://i.pinimg.com/originals/a2/89/ff/a289ffdd076417305bb2fce71b93570f.png",
-        "responses": [
-          {
-            "id": 3,
-            "text": "Move to Texas"
-          }
-        ]
-      },
-      {
-        "id": 3,
+      { "id": 2,
         "text": "You moved to Texas!",
         "responses": [
-          {
-            "id": 4,
-            "text": "Awesome"
-          },
-          {
-            "id": 5,
-            "text": "Not cool, man"
-          }
+          { "id": 3, "text": ":)" },
+          { "id": 4, "text": ":(" }
         ]
       },
-      {
-        "id": 4,
-        "image": "https://c.tadst.com/gfx/750w/texas-independence.jpg",
-        "responses": [
-          {
-            "id": 6,
-            "text": "Move to Louisiana"
-          }
-        ]
-      },
-      {
-        "id": 5,
+      { "id": 3,
         "text": "You moved to Louisiana!",
         "responses": [
-          {
-            "id": 7,
-            "text": "The food is good there"
-          },
-          {
-            "id": 8,
-            "text": "Mardi Gras!"
-          },
-          {
-            "id": 9,
-            "text": "Eww... swamps..."
-          }
+          { "id": 5, "text": ":)" },
+          { "id": 6, "text": ":(" }
         ]
       },
-      {
-        "id": 6,
-        "image": "https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/louisiana-fun-map-kevin-middleton.jpg",
+      { "id": 4,
+        "text": "You graduated from high school as valedictorian!",
         "responses": [
-          {
-            "id": 10,
-            "text": "Grow up already!"
-          }
+          { "id": 7, "text": ":)" },
+          { "id": 8, "text": ":D" }
         ]
       },
-      {
-        "id": 7,
-        "text": "You graduated from Bossier City High School as valedictorian!",
+      { "id": 5,
+        "image": "/images/grad1.jpg",
         "responses": [
-          {
-            "id": 11,
-            "text": "Show off..."
-          },
-          {
-            "id": 12,
-            "text": "Wow!"
-          }
-        ]
-      },
-      {
-        "id": 8,
-        "image": "images/grad1.jpg",
-        "responses": [
-          {
-            "id": 13,
-            "text": "Again!"
-          }
+          { "id": 9, "text": "Play again" }
         ]
       }
     ]
   },
   {
     "id": 2,
-    "name": "Level 2 - Get an education!",
+    "name": "Level 2 - Get an Education!",
     "cards": [
-      {
-        "id": 9,
-        "text": "You just started college at LSU!",
+      { "id": 6,
+        "text":
+         "You're attending college at LSU! What are you majoring in?",
         "responses": [
-          {
-            "id": 14,
-            "text": "Cool!"
-          },
-          {
-            "id": 15,
-            "text": "Geaux Tigers!"
-          },
-          {
-            "id": 16,
-            "text": "LSU Sux"
-          }
+          { "id": 10, "text": "Something artsy" },
+          { "id": 11, "text": "Something mathy" }
         ]
       },
-      {
-        "id": 10,
-        "text": "You're majoring in graphic design. But why? You miss math.",
+      { "id": 7,
+        "text":
+         "The correct answer was something artsy! You’re majoring in graphic design. Is that a good decision?",
         "responses": [
-          {
-            "id": 17,
-            "text": "Change Major"
-          }
-        ]
-      },
-      {
-        "id": 11,
-        "text": "You changed your major to Accounting! How fun! What an exciting subject!",
+          { "id": 12, "text": "No" },
+          { "id": 13, "text": "Yes" }
+          ]
+        },
+      { "id": 8,
+        "text":
+         "The correct answer was no! You’re bad at art. You’ve changed your major to accounting. Is accounting fun?",
         "responses": [
-          {
-            "id": 18,
-            "text": "Yeah!"
-          },
-          {
-            "id": 19,
-            "text": "Bro..."
-          },
-          {
-            "id": 20,
-            "text": "Accounting, really?"
-          }
-        ]
-      },
-      {
-        "id": 12,
-        "image": "https://preview.redd.it/ky3ugeivkd821.jpg?width=960&crop=smart&auto=webp&s=81d3b09c6f429b01a4602f483d34f06a077ad7c8",
+          { "id": 14, "text": "No" },
+          { "id": 15, "text": "Yes" }
+          ]
+        },
+      { "id": 9,
+        "text":
+         "No, accounting is not fun, are you crazy?? But you’re doing it anyway! Is it a good decision?",
         "responses": [
-          {
-            "id": 21,
-            "text": "Hahaha"
-          },
-          {
-            "id": 22,
-            "text": "Come on, it can't be that bad"
-          }
-        ]
-      },
-      {
-        "id": 13,
-        "text": "You just got an internship at an PwC (a fantastic accounting firm) in New York City!",
+          { "id": 16, "text": "No" },
+          { "id": 17, "text": "Yes" }
+          ]
+        },
+      { "id": 10,
+        "text":
+         "The correct answer was yes! You got an accounting internship at PwC in New York City! How excited are you?",
         "responses": [
-          {
-            "id": 23,
-            "text": "Yasssssss!"
-          },
-          {
-            "id": 24,
-            "text": "Sounds awful!"
-          }
-        ]
-      },
-      {
-        "id": 14,
-        "image": "https://pics.me.me/who-would-win-an-entire-accounting-firm-a-confused-old-17422631.png",
+          { "id": 18, "text": ":)" },
+          { "id": 19, "text": ":D" }
+          ]
+        },
+      { "id": 11,
+        "text":
+         "The correct answer was :D! You got a job offer from PwC after the internship and graduated from LSU! What will you do?",
         "responses": [
-          {
-            "id": 25,
-            "text": "PwC!"
-          },
-          {
-            "id": 26,
-            "text": "Oh right they messed up the Oscars"
-          }
-        ]
-      },
-      {
-        "id": 15,
-        "text": "You finished the internship and graduated from college! Go you!",
+          { "id": 20, "text": "Move to NYC, Duh!" },
+          { "id": 21, "text": "Decline the offer and stay in Louisiana" }
+          ]
+        },
+      { "id": 12,
+        "text": "The correct answer was obviously move to NYC!",
         "responses": [
-          {
-            "id": 27,
-            "text": "Again!"
-          }
+          { "id": 22, "text": "Yes it was!" }
+          ]
+        },
+      { "id": 13,
+        "image": "images/grad2.jpg",
+        "responses": [
+          { "id": 23, "text": "Play again" }
         ]
       }
     ]
   },
   {
     "id": 3,
-    "name": "Level 3 - Get a job!"
+    "name": "Level 3 - Get a job!",
+    "cards": [
+      { "id": 14,
+        "text":
+         "You’ve moved to NYC and started your job at PwC! How’s it going?",
+        "responses":[
+          { "id": 24, "text": "Very well!" },
+          { "id": 25, "text": "I'm an impostor and everyone can tell" }
+          ]
+        },
+      { "id": 15,
+        "text":
+         "You’re an impostor! Everyone can tell! :D But you’ve discovered you have a passion for something… What is it?",
+        "responses": [
+          { "id": 26, "text": "Programming" },
+          { "id": 27, "text": "Juggling in space" }
+          ]
+        },
+      { "id": 16,
+        "text":
+         "The correct answer was programming! You’ve decided you want to learn how to code and switch careers. How will you do it?",
+        "responses": [
+          { "id": 28,
+             "text": "Stay at PwC and learn how to code in my spare time" },
+          { "id": 29, "text": "Leave PwC and learn how to code on my own" }
+           ]
+         },
+      { "id": 17,
+        "text":
+         "The smart answer was stay at PwC, but you decided to leave and do it on your own! How long will it take you to learn how to code?",
+        "responses": [
+          { "id": 30, "text": "6 months" },
+          { "id": 31, "text": "A lifetime" }
+          ]
+        },
+      { "id": 18,
+        "text": "The correct answer was a lifetime!",
+        "responses": [
+          { "id": 32, "text": "Oh" },
+          { "id": 33, "text": "Duh" }
+          ]
+        },
+      { "id": 19,
+        "image": "images/pwc.jpg",
+        "responses": [
+          { "id": 34, "text": "Play again" }
+          ]
+        }
+    ]
   },
   {
     "id": 4,
-    "name": "Level 4 - Get a life!"
+    "name": "Level 4 - Get a life!",
+    "cards": [
+      { "id": 20,
+        "text":
+         "One year later… You’ve all but given up on teaching yourself how to code. What do you do next?",
+        "responses":
+         [
+           { "id": 35, "text": "Apply to a coding bootcamp" },
+           { "id": 36,
+             "text": "Follow your real dream of being a juggler in space" }
+           ]
+        },
+      { "id": 21,
+        "text":
+         "You applied to Flatiron School, and you got in! Was this a good decision?",
+        "responses": [
+          { "id": 37, "text": "Yes" },
+          { "id": 38, "text": "1000x yes!" }
+          ]
+        },
+      { "id": 22,
+        "text":
+         "The correct answer was 1000x yes! You’re a student at Flatiron School. How’s it going?",
+        "responses": [
+          { "id": 39, "text": "Very good!" },
+          { "id": 40, "text": "I LOVE it!" }
+          ]
+        },
+      { "id": 23,
+        "text":
+         "The correct answer was I LOVE IT! You’ve finally learned how to code! You’re about to graduate from Flatiron School! What will you do next?",
+        "responses": [
+          { "id": 41, "text": "Get a job" },
+          { "id": 42, "text": "Juggle in space" }
+          ]
+        },
+      { "id": 24,
+        "text":
+         "The correct answer was juggle in space because no one will hire you! You’ve only just graduated from a bootcamp! Haha, you thought you’d find a job that easily??",
+        "responses": [
+          { "id": 43, "text": "Well yes" },
+          { "id": 44, "text": "Uhhhhh" }
+          ]
+        },
+      { "id": 25,
+        "text":
+         "Woohoo, you’re a juggler in space! Did you have a good life?",
+        "responses": [
+          { "id": 45, "text": "Yes" },
+          { "id": 46, "text": "No, I hated it" }
+          ]
+        },
+      { "id": 26,
+        "image": "images/juggler.jpg",
+        "responses": [
+          { "id": 47, "text": "Play again" },
+          { "id": 48, "text": "I've got a job for you!" }
+          ]
+        }
+    ]
   }
 ]
