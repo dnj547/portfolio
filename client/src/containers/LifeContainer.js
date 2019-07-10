@@ -26,12 +26,26 @@ class LifeContainer extends Component {
     }
   }
 
+  montage = () => {
+    console.log('montage');
+  }
+
   showInitialPage = () => {
     if (this.state.level === 0) {
       return (
         <div className="initial-life-page">
-          <h1>Play the game of my life!</h1>
-          <button onClick={this.nextLevel}>Play</button>
+          <div className="initial-life-page-card">
+            <img
+              alt="me"
+              src="images/me.jpg"
+              />
+            <button className="play-game-button" onClick={this.nextLevel}>Play</button>
+          </div>
+          <div className="initial-life-page-text">
+            <h1>Play the game of my life!</h1>
+            <p>click play to start the game</p>
+            <button onClick={this.montage}>Montage</button>
+          </div>
         </div>
       )
     }
@@ -46,10 +60,12 @@ class LifeContainer extends Component {
   render() {
     console.log('Life Container state', this.state);
     return (
-      <div className="life-container">
-        <button onClick={this.finishIt}>finish it</button>
-        {this.showInitialPage()}
-        {this.levelComponents()}
+      <div>
+        <div className="life-container">
+          {this.showInitialPage()}
+          {this.levelComponents()}
+        </div>
+        <div onClick={this.finishIt}>...</div>
       </div>
     );
   }

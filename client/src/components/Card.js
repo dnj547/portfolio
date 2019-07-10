@@ -9,17 +9,8 @@ class Card extends Component {
 
   state = {
     clicked: [],
-    responsesAndVotePercentages: []
-  }
-
-  showResponsesAndVotePercentages = () => {
-    return this.state.responsesAndVotePercentages.map(rv=>{
-      if (rv[0] === this.state.clicked) {
-        return <p key={rv[0]}><strong>{rv[0]}: {rv[1]}</strong></p>
-      } else {
-        return <p key={rv[0]}>{rv[0]}: {rv[1]}</p>
-      }
-    })
+    responsesAndVotePercentages: [],
+    highestResponse: []
   }
 
   resetState = () => {
@@ -29,13 +20,22 @@ class Card extends Component {
     }, this.props.nextCardOrRestart())
   }
 
-  showTextOrImageOrAnalytics = () => {
+  showCard = () => {
     if (this.state.clicked.length>0) {
       return (
         <div className="card">
-          <div className="level-text">
-            <p><strong>You said: {this.state.clicked}</strong></p>
-            <p>Other people said: </p>
+          <div className="card-analytics-container">
+            <p className="card-analytics-text">{this.props.card.text}</p>
+            <div className="card-you-said">
+              <p>You said:</p>
+              <br/>
+              <button disabled>{this.state.clicked}</button>
+            </div>
+            <p className="card-survey-says">Survey says:</p>
+            <div className="survey-says">
+              <p className="survey-says-text">{this.state.highestResponse[1]}</p>
+              <button className="survey-says-button" disabled>{this.state.highestResponse[0]}</button>
+            </div>
             <div className="analytics">
               {this.state.clicked.length > 0 ?  <PieChartWithCustomization pieState={this.state}/> : null}
             </div>
@@ -47,7 +47,7 @@ class Card extends Component {
     } else if (this.props.card.text) {
       return (
         <div className="card">
-          <div className="level-text">
+          <div className="card-text-container">
             <p>{this.props.card.text}</p>
           </div>
           <br/>
@@ -57,7 +57,7 @@ class Card extends Component {
     } else {
       return (
         <div className="card">
-          <div className="img-container">
+          <div className="card-img-container">
             <img
               alt={this.props.card.id}
               src={this.props.card.image}/>
@@ -72,7 +72,9 @@ class Card extends Component {
   showButtons = () => {
     return this.props.card.responses.map(response=>{
       return (
-        <button className="response-button" id={response.id} key={response.id} onClick={this.props.card.responses.length > 1 ? this.postToVotes : this.props.nextCardOrRestart}>{response.text}</button>
+        <div className="response-button-container" key={response.id}>
+          <button className="response-button" id={response.id} key={response.id} onClick={this.props.card.responses.length > 1 ? this.postToVotes : this.props.nextCardOrRestart}>{response.text}</button>
+        </div>
       )
     })
   }
@@ -92,9 +94,18 @@ class Card extends Component {
         return responsesAndVotePercentages.push([response.response_text, ((response.votes.length/totalVotes)*100).toFixed(0)+'%'])
       })
       let clicked = responseClicked.text
+      let responsesSorted = responsesForThisCard.sort(function(a, b){return a.votes.length - b.votes.length})
+      console.log(responsesSorted);
+      let highestOne = responsesSorted[responsesSorted.length-1]
+      let highest = []
+      highest.push(highestOne['response_text'])
+      highest.push(((highestOne['votes'].length/totalVotes)*100).toFixed(0)+'%')
+      console.log('highestOne', highestOne);
+      console.log('highest', highest);
       this.setState({
         clicked: clicked,
-        responsesAndVotePercentages: responsesAndVotePercentages
+        responsesAndVotePercentages: responsesAndVotePercentages,
+        highestResponse: highest
       })
     })
     .catch(()=>console.log("Error fetching votes"))
@@ -129,9 +140,8 @@ class Card extends Component {
   render() {
     console.log('Card props', this.props);
     return (
-      <div className="level">
-        <h2>{this.props.level}</h2>
-        {this.showTextOrImageOrAnalytics()}
+      <div className="card-container">
+        {this.showCard()}
       </div>
     )
   }

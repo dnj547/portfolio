@@ -5,35 +5,35 @@ import Project from '../components/Project';
 class ProjectsContainer extends Component {
 
   state = {
-    currentProject: 1
+    currentProject: data[0],
+    currentProjectIndex: 0
   }
 
   nextProject = () => {
-    if (this.state.currentProject < data.length) {
+    if (this.state.currentProjectIndex < data.length-1) {
       this.setState({
-        currentProject: this.state.currentProject+1
+        currentProject: data[this.state.currentProjectIndex+1],
+        currentProjectIndex: this.state.currentProjectIndex+1
       })
     }
   }
 
   previousProject = () => {
-    if (this.state.currentProject > 1) {
+    if (this.state.currentProjectIndex > 0) {
       this.setState({
-        currentProject: this.state.currentProject-1
+        currentProject: data[this.state.currentProjectIndex-1],
+        currentProjectIndex: this.state.currentProjectIndex-1
       })
     }
   }
-
-  projectComponents = () => {
-    return data.map(project=>{
-      return <Project key={project.id} project={project} currentProject={this.state.currentProject} nextProject={this.nextProject} previousProject={this.previousProject}/>
-    })
-  }
   render() {
+    console.log('projects container data', data);
     return (
-      <div className="projects-container ui container">
-        <h1>Projects</h1>
-        {this.projectComponents()}
+      <div>
+        <div className="project-container">
+          <h1 className="project-header">These are my projects!</h1>
+          <Project key={this.state.currentProject.id} project={this.state.currentProject} nextProject={this.nextProject} previousProject={this.previousProject}/>
+        </div>
       </div>
     );
   }
