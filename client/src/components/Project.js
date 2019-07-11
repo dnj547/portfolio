@@ -10,21 +10,32 @@ class Project extends Component {
     console.log('Project props', this.props);
     return (
       <div className="project">
-        <h1>{this.props.project.name}</h1>
         <div className="project-stuff">
           <div className="video-container">
-            <iframe title={this.props.project.id} width={this.state.width} height={this.state.height} src={this.props.project.video} frameBorder="0" allowFullScreen></iframe>
+            <iframe title={this.props.project.id} width={this.state.width} height={this.state.height} src={this.props.project.video} frameBorder="0" allowFullScreen></iframe><br/><br/>
+            <button className="arrow-icon">
+              <i onClick={this.props.previousProject} className="fas fa-arrow-circle-left"></i>
+            </button>
+            <a href={this.props.project.github}>
+              <button className="project-button">GitHub</button>
+            </a>
+            <a href={this.props.project.planning}>
+              <button className="project-button">Planning Doc</button>
+            </a>
+            <button className="arrow-icon">
+              <i onClick={this.props.nextProject} className="fas fa-arrow-circle-right"></i>
+            </button>
           </div>
           <div className="project-info">
-            <a href={this.props.project.github}>GitHub</a><br/>
-            <h3>Created</h3><br/>
-            <p>{this.props.project['date-created']}</p><br/>
-            <h3>Tech Used</h3><br/>
-            <p>{this.props.project['tech-used']}</p><br/>
-            <h3>Description</h3><br/>
-            <p>{this.props.project.description}</p><br/>
-            <button onClick={this.props.previousProject}>Previous</button>
-            <button onClick={this.props.nextProject}>Next</button>
+            <h1>{this.props.project.name}</h1>
+            <h2 className="project-info-header">Description</h2>
+            <p>{this.props.project.description}</p>
+            <h2 className="project-info-header">Created</h2>
+            <p>{this.props.project['date-created']}</p>
+            <h2 className="project-info-header">Tech Used</h2>
+            <p>{this.props.project['tech-used']}</p>
+            <h2 className="project-info-header">Partner</h2><br/>
+            <a href={this.props.project.partnerGitHub}>{this.props.project.partner}</a>
           </div>
         </div>
       </div>

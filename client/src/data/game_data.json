@@ -62,7 +62,8 @@
         "responses": [
           { "id": 12, "text": "No" },
           { "id": 13, "text": "Yes" }
-          ]
+        ],
+        "correct": 12
         },
       { "id": 8,
         "text":
@@ -236,7 +237,8 @@
         "responses": [
           { "id": 47, "text": "Play again" },
           { "id": 48, "text": "I've got a job for you!" }
-          ]
+        ],
+        "correct": 47
         }
     ]
   }
