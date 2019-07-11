@@ -237,7 +237,8 @@
         "responses": [
           { "id": 47, "text": "Play again" },
           { "id": 48, "text": "I've got a job for you!" }
-          ]
+        ],
+        "correct": 47
         }
     ]
   }

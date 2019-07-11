@@ -54,12 +54,31 @@ class Level extends Component {
     })
   }
 
+  showAllCards = () => {
+    console.log('show all cards', this.props.level.cards);
+    return this.props.level.cards.map(card=>{
+      return (
+        <Card card={card} nextCardOrRestart={this.nextCardOrRestart} level={this.props.level.id} showAll={card}/>
+      )
+    })
+  }
+
   render() {
     console.log('');
     console.log(this.props.level.name, this.state, 'props', this.props);
     return (
-      <div className="card-and-button-div-container">
-        {this.showACardComponent()}
+      <div className="level-container">
+        {!!this.props.montage ? (
+          <div>
+            <p className="level-name-when-all">{this.props.level.name}</p>
+            {this.showAllCards()}
+          </div>
+        ) : (
+          <div className="card-and-button-div-container">
+            <p className="level-name">{this.props.level.name}</p>
+            {this.showACardComponent()}
+          </div>
+        )}
       </div>
     );
   }

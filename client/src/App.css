@@ -154,8 +154,8 @@ body {
 .card {
   border-radius: 10px;
   background-color: #FFC5D1;
-  width: 325px;
-  height: 600px;
+  width: 350px;
+  height: 650px;
   display: flex;
   flex-direction: column;
   margin: auto;
@@ -192,6 +192,7 @@ body {
   color: #FF738E;
   font-size: 38px;
   font-weight: bold;
+  width: 90%;
 }
 .card-analytics-container {
   border-radius: 10px;
@@ -220,6 +221,18 @@ body {
   font-weight: bold;
   font-size: 20px;
 }
+.good-icon {
+  color: green;
+  font-size: 50px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.bad-icon {
+  color: red;
+  font-size: 50px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
 .card-you-said {
   width: 90%;
   height: 10%;
@@ -229,8 +242,7 @@ body {
   margin-right: auto;
 }
 .card-survey-says {
-  margin-top: 25px;
-  margin-bottom: -10px;
+  display: inline-block;
 }
 .analytics {
   margin-top: -15px;
@@ -252,9 +264,11 @@ body {
   border-radius: 5px;
   color: #FFC5D1;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 18px;
 }
-
+.your-answer p {
+  display: inline-block;
+}
 .survey-says-text {
   display: inline-block;
   font-weight: bold;
@@ -269,11 +283,59 @@ body {
   border-radius: 5px;
   color: #FFC5D1;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 18px;
+}
+.your-answer button {
+  display: inline-block;
+  margin-left: 10px;
+  margin-right: auto;
+  display: inline-block;
+  background-color: #FF738E;
+  border: none;
+  border-radius: 5px;
+  color: #FFC5D1;
+  font-weight: bold;
+  font-size: 18px;
+}
+.answers-container {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.answers-container button {
 }
 .canvasjs-chart-canvas {
   margin-top: 20px;
+  margin-left: 0px;
 }
+.level-container {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -30px;
+}
+.level-name {
+  font-size: 20px;
+  color: #FF738E;
+}
+.level-name-when-all {
+  font-size: 20px;
+  color: #FF738E;
+  margin-top: 50px;
+}
+.put-together {
+  display: flex;
+  flex-direction: row;
+}
+.put-together-one {
+  flex-grow: 2;
+}
+.put-together-two {
+  flex-grow: 7;
+}
+
 
 
 // Projects Page
@@ -329,9 +391,25 @@ body {
   flex: 1;
   text-align: left;
 }
+.project-info p {
+  font-size: 24px;
+}
+.project-info a {
+  font-size: 24px;
+  color: #FF738E;
+  text-decoration: none;
+  margin-left: 5px;
+}
+.project-info a:hover {
+  font-size: 24px;
+  color: #FF738E;
+  text-decoration: underline;
+  margin-left: 5px;
+}
 .project-info-header {
   margin-bottom: -10px;
   margin-left: 5px;
+  font-size: 30px;
 }
 .project-info p {
   margin-left: 5px;
@@ -402,7 +480,7 @@ body {
   flex: 1;
   background-color: pink;
   width: 40%;
-  height: 90%;
+  height: 85%;
   overflow: hidden;
   padding-top: 20px;
   margin: auto;
@@ -417,7 +495,7 @@ body {
   flex: 1;
   flex-grow: 3;
   width: 40%;
-  margin-top: 60px;
+  margin-top: 75px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -427,6 +505,15 @@ body {
   margin-top: -30px;
   text-align: left;
   margin-left: 50px;
+  margin-bottom: 15px;
+}
+.about-me-text h2 {
+  color: #FF738E;
+  font-size: 30px;
+  margin-top: -30px;
+  margin-bottom: 15px;
+  text-align: left;
+  margin-left: 50px;
 }
 .about-me-text p {
   color: #FF738E;
@@ -434,6 +521,26 @@ body {
   margin-top: -30px;
   text-align: left;
   margin-left: 50px;
+  margin-bottom: 15px;
+}
+.about-me-text-text p {
+  color: #FF738E;
+  font-size: 20px;
+  margin-top: -30px;
+  text-align: left;
+  margin-left: 70px;
+}
+.other-br {
+  font-size: 30px;
+}
+.ending-br {
+  font-size: 20px;
+}
+.list {
+  padding-left: 24px;
+}
+.fa-star-of-life {
+  font-size: 15px;
 }
 .about-me-button {
   display: inline-block;

@@ -28,12 +28,14 @@ class Project extends Component {
           </div>
           <div className="project-info">
             <h1>{this.props.project.name}</h1>
+            <h2 className="project-info-header">Description</h2>
+            <p>{this.props.project.description}</p>
             <h2 className="project-info-header">Created</h2>
             <p>{this.props.project['date-created']}</p>
             <h2 className="project-info-header">Tech Used</h2>
             <p>{this.props.project['tech-used']}</p>
-            <h2 className="project-info-header">Description</h2>
-            <p>{this.props.project.description}</p>
+            <h2 className="project-info-header">Partner</h2><br/>
+            <a href={this.props.project.partnerGitHub}>{this.props.project.partner}</a>
           </div>
         </div>
       </div>

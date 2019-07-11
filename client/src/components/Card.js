@@ -26,9 +26,9 @@ class Card extends Component {
   rightWrongOrNothing = () => {
     if (this.state.clicked && this.state.correctAnswer) {
       if (this.state.clicked === this.state.correctAnswer.response_text) {
-        return (<p>You got it!</p>)
+        return (<i className="good-icon fas fa-check-circle"></i>)
       } else {
-        return (<p>Wrong answer!</p>)
+        return (<i className="bad-icon fas fa-times-circle"></i>)
       }
     } else {
       return null
@@ -40,18 +40,17 @@ class Card extends Component {
       return (
         <div className="card">
           <div className="card-analytics-container">
-            {this.rightWrongOrNothing()}
-            <p>The question was...</p>
-            <p className="card-analytics-text">{this.props.card.text}</p>
-            <div className="correct-answer">
-              <p>Correct Answer:</p><br/>
-              <button disabled>{this.state.correctAnswer['response_text']}</button>
-            </div>
-
-            <p className="card-survey-says">Survey says:</p>
-            <div className="survey-says">
-              <p className="survey-says-text">{this.state.highestResponse[1]}</p>
-              <button className="survey-says-button" disabled>{this.state.highestResponse[0]}</button>
+            <div className="answers-container">
+              {this.rightWrongOrNothing()}
+              <div className="your-answer">
+                <p>You said:</p><button>{this.state.clicked}</button>
+              </div>
+              <div className="correct-answer">
+                <p>Right answer: </p><button disabled>{this.state.correctAnswer['response_text']}</button>
+              </div>
+              <div className="survey-says">
+                <p className="card-survey-says">Most people said:</p><button className="survey-says-button" disabled>{this.state.highestResponse[0]}</button>
+              </div>
             </div>
             <div className="analytics">
               {this.state.clicked.length > 0 ?  <PieChartWithCustomization pieState={this.state}/> : null}
@@ -157,59 +156,12 @@ class Card extends Component {
     })
   }
 
-  showMontage = () => {
-    console.log('montaging');
-    this.montage()
-    if (this.props.currentLevel >= this.props.level) {
-      if (this.props.card.text) {
-        return (
-          <div className="card">
-            <div className="card-text-container">
-              <p>{this.props.card.text}</p>
-            </div>
-            <br/>
-            {this.showButtons()}
-          </div>
-        )
-      } else {
-        return (
-          <div className="card">
-            <div className="card-img-container">
-              <img
-                alt={this.props.card.id}
-                src={this.props.card.image}/>
-            </div>
-            <br/>
-            {this.showButtons()}
-          </div>
-        )
-      }
-    }
-  }
-
-  goThroughTheCards = () => {
-    if (this.props.level === this.props.currentLevel) {
-      if (this.props.card.responses.length > 0) {
-        if (this.props.card.responses[0].text !== 'Play again') {
-          this.props.nextCardOrRestart()
-        } else {
-          this.props.nextLevel()
-        }
-      } else {
-      }
-    } else {
-    }
-  }
-
-  montage = () => {
-    setInterval(this.goThroughTheCards, 3000)
-  }
 
   render() {
     console.log('Card props', this.props);
     return (
       <div className="card-container">
-        {this.props.montage ? this.showMontage() : this.showCard()}
+        {this.showCard()}
       </div>
     )
   }
