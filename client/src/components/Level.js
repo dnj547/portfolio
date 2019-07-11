@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import Card from './Card';
 
-
-
 class Level extends Component {
 
   state = {
@@ -11,11 +9,18 @@ class Level extends Component {
   }
 
   showACardComponent = () => {
+    debugger
     if (!!this.props.montage) {
       let currentCard = this.props.level.cards[this.state.progress]
       return (
         <div className="card-and-button-div">
-          <Card montage={this.props.montage} card={currentCard} nextCardOrRestart={this.nextCardOrRestart} level={this.props.level.id} nextLevel={this.props.nextLevel} currentLevel={this.props.currentLevel}/>
+          <Card
+            montage={this.props.montage}
+            card={currentCard}
+            nextCardOrRestart={this.nextCardOrRestart}
+            level={this.props.level.id}
+            nextLevel={this.props.nextLevel}
+            currentLevel={this.props.currentLevel}/>
           <div onClick={this.finishIt}>...</div>
         </div>
       )
@@ -23,7 +28,10 @@ class Level extends Component {
       let currentCard = this.props.level.cards[this.state.progress]
       return (
         <div className="card-and-button-div">
-          <Card card={currentCard} nextCardOrRestart={this.nextCardOrRestart} level={this.props.level.id}/>
+          <Card
+            card={currentCard}
+            nextCardOrRestart={this.nextCardOrRestart}
+            level={this.props.level.id}/>
           <div onClick={this.finishIt}>...</div>
         </div>
       )
@@ -55,8 +63,10 @@ class Level extends Component {
   }
 
   render() {
-    console.log('');
-    console.log(this.props.level.name, this.state, 'props', this.props);
+    console.log('level props', this.props);
+    console.log('level state', this.state);
+    // console.log('');
+    // console.log(this.props.level.name, this.state, 'props', this.props);
     return (
       <div className="card-and-button-div-container">
         {this.showACardComponent()}

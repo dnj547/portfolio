@@ -112,7 +112,7 @@ class Card extends Component {
       })
       let clicked = responseClicked.text
       let responsesSorted = responsesForThisCard.sort(function(a, b){return a.votes.length - b.votes.length})
-      console.log(responsesSorted);
+      // console.log(responsesSorted);
       let highestOne = responsesSorted[responsesSorted.length-1]
       let highest = []
       highest.push(highestOne['response_text'])
@@ -120,20 +120,20 @@ class Card extends Component {
       let correctAnswer = responses.find(r=>{
         return r.id === this.props.card.correct
       })
-      console.log('correct', correctAnswer);
+      // console.log('correct', correctAnswer);
       this.setState({
-        clicked: clicked,
-        responsesAndVotePercentages: responsesAndVotePercentages,
+        clicked,
+        responsesAndVotePercentages,
         highestResponse: highest,
-        correctAnswer: correctAnswer
+        correctAnswer
       })
     })
     .catch(()=>console.log("Error fetching votes"))
   }
 
   postToVotes = (e) => {
-    console.log('');
-    console.log('posting to votes');
+    // console.log('');
+    // console.log('posting to votes');
     let cardClickedId = this.props.card.id
     let responseClicked = this.props.card.responses.find(response=>{
       return response.id === parseInt(e.currentTarget.id, 10)
