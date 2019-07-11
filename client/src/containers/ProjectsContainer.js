@@ -31,7 +31,6 @@ class ProjectsContainer extends Component {
     return (
       <div>
         <div className="project-container">
-          <h1 className="project-header">These are my projects!</h1>
           <Project key={this.state.currentProject.id} project={this.state.currentProject} nextProject={this.nextProject} previousProject={this.previousProject}/>
         </div>
       </div>

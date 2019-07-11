@@ -10,14 +10,29 @@ class Card extends Component {
   state = {
     clicked: [],
     responsesAndVotePercentages: [],
-    highestResponse: []
+    highestResponse: [],
+    correctAnswer: {}
   }
 
   resetState = () => {
     this.setState({
       clicked: [],
-      responsesAndVotePercentages: []
+      responsesAndVotePercentages: [],
+      highestResponse: [],
+      correctAnswer: {}
     }, this.props.nextCardOrRestart())
+  }
+
+  rightWrongOrNothing = () => {
+    if (this.state.clicked && this.state.correctAnswer) {
+      if (this.state.clicked === this.state.correctAnswer.response_text) {
+        return (<p>You got it!</p>)
+      } else {
+        return (<p>Wrong answer!</p>)
+      }
+    } else {
+      return null
+    }
   }
 
   showCard = () => {
@@ -25,12 +40,14 @@ class Card extends Component {
       return (
         <div className="card">
           <div className="card-analytics-container">
+            {this.rightWrongOrNothing()}
+            <p>The question was...</p>
             <p className="card-analytics-text">{this.props.card.text}</p>
-            <div className="card-you-said">
-              <p>You said:</p>
-              <br/>
-              <button disabled>{this.state.clicked}</button>
+            <div className="correct-answer">
+              <p>Correct Answer:</p><br/>
+              <button disabled>{this.state.correctAnswer['response_text']}</button>
             </div>
+
             <p className="card-survey-says">Survey says:</p>
             <div className="survey-says">
               <p className="survey-says-text">{this.state.highestResponse[1]}</p>
@@ -100,12 +117,15 @@ class Card extends Component {
       let highest = []
       highest.push(highestOne['response_text'])
       highest.push(((highestOne['votes'].length/totalVotes)*100).toFixed(0)+'%')
-      console.log('highestOne', highestOne);
-      console.log('highest', highest);
+      let correctAnswer = responses.find(r=>{
+        return r.id === this.props.card.correct
+      })
+      console.log('correct', correctAnswer);
       this.setState({
         clicked: clicked,
         responsesAndVotePercentages: responsesAndVotePercentages,
-        highestResponse: highest
+        highestResponse: highest,
+        correctAnswer: correctAnswer
       })
     })
     .catch(()=>console.log("Error fetching votes"))
@@ -137,11 +157,59 @@ class Card extends Component {
     })
   }
 
+  showMontage = () => {
+    console.log('montaging');
+    this.montage()
+    if (this.props.currentLevel >= this.props.level) {
+      if (this.props.card.text) {
+        return (
+          <div className="card">
+            <div className="card-text-container">
+              <p>{this.props.card.text}</p>
+            </div>
+            <br/>
+            {this.showButtons()}
+          </div>
+        )
+      } else {
+        return (
+          <div className="card">
+            <div className="card-img-container">
+              <img
+                alt={this.props.card.id}
+                src={this.props.card.image}/>
+            </div>
+            <br/>
+            {this.showButtons()}
+          </div>
+        )
+      }
+    }
+  }
+
+  goThroughTheCards = () => {
+    if (this.props.level === this.props.currentLevel) {
+      if (this.props.card.responses.length > 0) {
+        if (this.props.card.responses[0].text !== 'Play again') {
+          this.props.nextCardOrRestart()
+        } else {
+          this.props.nextLevel()
+        }
+      } else {
+      }
+    } else {
+    }
+  }
+
+  montage = () => {
+    setInterval(this.goThroughTheCards, 3000)
+  }
+
   render() {
     console.log('Card props', this.props);
     return (
       <div className="card-container">
-        {this.showCard()}
+        {this.props.montage ? this.showMontage() : this.showCard()}
       </div>
     )
   }
