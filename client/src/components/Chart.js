@@ -15,19 +15,20 @@ class PieChartWithCustomization extends React.Component {
                 showInLegend: false,
                 legendText: "{label}",
                 toolTipContent: "{label}: <strong>{y}%</strong>",
-                indexLabel: "{y}% {label}",
+                indexLabel: "{y}%",
                 indexLabelPlacement: "inside",
+                indexLabelWrap: 0,
                 indexLabelFontSize: 16,
                 dataPoints: [
-                    { y: parseInt(this.props.pieState.responsesAndVotePercentages[0][1], 10), label: this.props.pieState.responsesAndVotePercentages[0][0] },
-                    { y: parseInt(this.props.pieState.responsesAndVotePercentages[1][1], 10), label: this.props.pieState.responsesAndVotePercentages[1][0] },
+                    { y: parseInt(this.props.pieState.responsesAndVotePercentages[0][1], 10), label: this.props.pieState.responsesAndVotePercentages[0][0], color: '#FF738E' },
+                    { y: parseInt(this.props.pieState.responsesAndVotePercentages[1][1], 10), label: this.props.pieState.responsesAndVotePercentages[1][0], color: '#FFC5D1' },
                 ]
             }]
         }
 
         return (
-        <div >
-          <CanvasJSChart options={options}/>
+        <div className="chart-container">
+          <CanvasJSChart className="chart" options={options}/>
         </div>
         );
     }

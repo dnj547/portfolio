@@ -9,33 +9,50 @@ class Card extends Component {
 
   state = {
     clicked: [],
-    responsesAndVotePercentages: []
-  }
-
-  showResponsesAndVotePercentages = () => {
-    return this.state.responsesAndVotePercentages.map(rv=>{
-      if (rv[0] === this.state.clicked) {
-        return <p key={rv[0]}><strong>{rv[0]}: {rv[1]}</strong></p>
-      } else {
-        return <p key={rv[0]}>{rv[0]}: {rv[1]}</p>
-      }
-    })
+    responsesAndVotePercentages: [],
+    highestResponse: [],
+    correctAnswer: {}
   }
 
   resetState = () => {
     this.setState({
       clicked: [],
-      responsesAndVotePercentages: []
+      responsesAndVotePercentages: [],
+      highestResponse: [],
+      correctAnswer: {}
     }, this.props.nextCardOrRestart())
   }
 
-  showTextOrImageOrAnalytics = () => {
+  rightWrongOrNothing = () => {
+    if (this.state.clicked && this.state.correctAnswer) {
+      if (this.state.clicked === this.state.correctAnswer.response_text) {
+        return (<p>You got it!</p>)
+      } else {
+        return (<p>Wrong answer!</p>)
+      }
+    } else {
+      return null
+    }
+  }
+
+  showCard = () => {
     if (this.state.clicked.length>0) {
       return (
         <div className="card">
-          <div className="level-text">
-            <p><strong>You said: {this.state.clicked}</strong></p>
-            <p>Other people said: </p>
+          <div className="card-analytics-container">
+            {this.rightWrongOrNothing()}
+            <p>The question was...</p>
+            <p className="card-analytics-text">{this.props.card.text}</p>
+            <div className="correct-answer">
+              <p>Correct Answer:</p><br/>
+              <button disabled>{this.state.correctAnswer['response_text']}</button>
+            </div>
+
+            <p className="card-survey-says">Survey says:</p>
+            <div className="survey-says">
+              <p className="survey-says-text">{this.state.highestResponse[1]}</p>
+              <button className="survey-says-button" disabled>{this.state.highestResponse[0]}</button>
+            </div>
             <div className="analytics">
               {this.state.clicked.length > 0 ?  <PieChartWithCustomization pieState={this.state}/> : null}
             </div>
@@ -47,7 +64,7 @@ class Card extends Component {
     } else if (this.props.card.text) {
       return (
         <div className="card">
-          <div className="level-text">
+          <div className="card-text-container">
             <p>{this.props.card.text}</p>
           </div>
           <br/>
@@ -57,7 +74,7 @@ class Card extends Component {
     } else {
       return (
         <div className="card">
-          <div className="img-container">
+          <div className="card-img-container">
             <img
               alt={this.props.card.id}
               src={this.props.card.image}/>
@@ -72,7 +89,9 @@ class Card extends Component {
   showButtons = () => {
     return this.props.card.responses.map(response=>{
       return (
-        <button className="response-button" id={response.id} key={response.id} onClick={this.props.card.responses.length > 1 ? this.postToVotes : this.props.nextCardOrRestart}>{response.text}</button>
+        <div className="response-button-container" key={response.id}>
+          <button className="response-button" id={response.id} key={response.id} onClick={this.props.card.responses.length > 1 ? this.postToVotes : this.props.nextCardOrRestart}>{response.text}</button>
+        </div>
       )
     })
   }
@@ -92,9 +111,21 @@ class Card extends Component {
         return responsesAndVotePercentages.push([response.response_text, ((response.votes.length/totalVotes)*100).toFixed(0)+'%'])
       })
       let clicked = responseClicked.text
+      let responsesSorted = responsesForThisCard.sort(function(a, b){return a.votes.length - b.votes.length})
+      console.log(responsesSorted);
+      let highestOne = responsesSorted[responsesSorted.length-1]
+      let highest = []
+      highest.push(highestOne['response_text'])
+      highest.push(((highestOne['votes'].length/totalVotes)*100).toFixed(0)+'%')
+      let correctAnswer = responses.find(r=>{
+        return r.id === this.props.card.correct
+      })
+      console.log('correct', correctAnswer);
       this.setState({
         clicked: clicked,
-        responsesAndVotePercentages: responsesAndVotePercentages
+        responsesAndVotePercentages: responsesAndVotePercentages,
+        highestResponse: highest,
+        correctAnswer: correctAnswer
       })
     })
     .catch(()=>console.log("Error fetching votes"))
@@ -126,12 +157,59 @@ class Card extends Component {
     })
   }
 
+  showMontage = () => {
+    console.log('montaging');
+    this.montage()
+    if (this.props.currentLevel >= this.props.level) {
+      if (this.props.card.text) {
+        return (
+          <div className="card">
+            <div className="card-text-container">
+              <p>{this.props.card.text}</p>
+            </div>
+            <br/>
+            {this.showButtons()}
+          </div>
+        )
+      } else {
+        return (
+          <div className="card">
+            <div className="card-img-container">
+              <img
+                alt={this.props.card.id}
+                src={this.props.card.image}/>
+            </div>
+            <br/>
+            {this.showButtons()}
+          </div>
+        )
+      }
+    }
+  }
+
+  goThroughTheCards = () => {
+    if (this.props.level === this.props.currentLevel) {
+      if (this.props.card.responses.length > 0) {
+        if (this.props.card.responses[0].text !== 'Play again') {
+          this.props.nextCardOrRestart()
+        } else {
+          this.props.nextLevel()
+        }
+      } else {
+      }
+    } else {
+    }
+  }
+
+  montage = () => {
+    setInterval(this.goThroughTheCards, 3000)
+  }
+
   render() {
     console.log('Card props', this.props);
     return (
-      <div className="level">
-        <h2>{this.props.level}</h2>
-        {this.showTextOrImageOrAnalytics()}
+      <div className="card-container">
+        {this.props.montage ? this.showMontage() : this.showCard()}
       </div>
     )
   }

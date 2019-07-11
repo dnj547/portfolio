@@ -5,14 +5,17 @@ import data from '../data/game_data.json';
 class LifeContainer extends Component {
 
   state = {
-    level: 0
+    level: 0,
+    montage: false
   }
 
   levelComponents = () => {
-    if (this.state.level > 0) {
-      return data.map(level=>{
-        return <Level key={level.id} level={level} nextLevel={this.nextLevel} currentLevel={this.state.level}/>
-      })
+    if (!this.state.montage) {
+      if (this.state.level > 0) {
+        return data.map(level=>{
+          return <Level key={level.id} level={level} nextLevel={this.nextLevel} currentLevel={this.state.level}/>
+        })
+      }
     }
   }
 
@@ -26,14 +29,39 @@ class LifeContainer extends Component {
     }
   }
 
+  montage = () => {
+    this.setState({
+      level: 1,
+      montage: true
+    })
+  }
+
+  showMontage = () => {
+    return data.map(level=>{
+      return <Level montage={this.state.montage} key={level.id} level={level} nextLevel={this.nextLevel} currentLevel={this.state.level}/>
+    })
+  }
+
   showInitialPage = () => {
-    if (this.state.level === 0) {
-      return (
-        <div className="initial-life-page">
-          <h1>Play the game of my life!</h1>
-          <button onClick={this.nextLevel}>Play</button>
-        </div>
-      )
+    if (!this.state.montage) {
+      if (this.state.level === 0) {
+        return (
+          <div className="initial-life-page">
+            <div className="initial-life-page-card">
+              <img
+                alt="me"
+                src="images/me.jpg"
+                />
+              <button className="play-game-button" onClick={this.nextLevel}>Play</button>
+            </div>
+            <div className="initial-life-page-text">
+              <h1>Play the game of my life!</h1>
+              <p>click play to start the game</p>
+              <div onClick={this.montage}>...</div>
+            </div>
+          </div>
+        )
+      }
     }
   }
 
@@ -46,10 +74,20 @@ class LifeContainer extends Component {
   render() {
     console.log('Life Container state', this.state);
     return (
-      <div className="life-container">
-        <button onClick={this.finishIt}>finish it</button>
-        {this.showInitialPage()}
-        {this.levelComponents()}
+      <div>
+        {!this.state.montage ? (
+          <div>
+            <div className="life-container">
+              {this.showInitialPage()}
+              {this.levelComponents()}
+            </div>
+            <div onClick={this.finishIt}>...</div>
+          </div>
+        ) : (
+          <div className="life-container">
+            {this.showMontage()}
+          </div>
+        )}
       </div>
     );
   }

@@ -11,9 +11,22 @@ class Level extends Component {
   }
 
   showACardComponent = () => {
-    if (this.props.level.cards && this.props.currentLevel >= this.props.level.id) {
+    if (!!this.props.montage) {
       let currentCard = this.props.level.cards[this.state.progress]
-      return <Card card={currentCard} nextCardOrRestart={this.nextCardOrRestart} level={this.props.level.id}/>
+      return (
+        <div className="card-and-button-div">
+          <Card montage={this.props.montage} card={currentCard} nextCardOrRestart={this.nextCardOrRestart} level={this.props.level.id} nextLevel={this.props.nextLevel} currentLevel={this.props.currentLevel}/>
+          <div onClick={this.finishIt}>...</div>
+        </div>
+      )
+    } else if (this.props.level.cards && this.props.currentLevel >= this.props.level.id) {
+      let currentCard = this.props.level.cards[this.state.progress]
+      return (
+        <div className="card-and-button-div">
+          <Card card={currentCard} nextCardOrRestart={this.nextCardOrRestart} level={this.props.level.id}/>
+          <div onClick={this.finishIt}>...</div>
+        </div>
+      )
     }
   }
 
@@ -45,9 +58,8 @@ class Level extends Component {
     console.log('');
     console.log(this.props.level.name, this.state, 'props', this.props);
     return (
-      <div className="level">
+      <div className="card-and-button-div-container">
         {this.showACardComponent()}
-        <button onClick={this.finishIt}>finish it</button>
       </div>
     );
   }
