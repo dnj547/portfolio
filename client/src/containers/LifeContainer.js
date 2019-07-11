@@ -52,11 +52,10 @@ class LifeContainer extends Component {
                 alt="me"
                 src="images/me.jpg"
                 />
-              <button className="play-game-button" onClick={this.nextLevel}>Play</button>
             </div>
             <div className="initial-life-page-text">
               <h1>Play the game of my life!</h1>
-              <p>click play to start the game</p>
+              <button className="play-game-button" onClick={this.nextLevel}>Play</button>
               <div onClick={this.montage}>...</div>
             </div>
           </div>
