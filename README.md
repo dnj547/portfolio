@@ -22,6 +22,7 @@ rails db:create && rails db:migrate && rails db:seed && rails s
 open second terminal window
 ```
 cd client
+yarn install
 yarn start
 yes
 ```
